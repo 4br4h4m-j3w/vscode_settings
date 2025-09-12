@@ -1,0 +1,90 @@
+{
+	"name": "json-compact-prettier",
+	"displayName": "JSON Compact Prettier",
+	"description": "Compactly Prettify JSON!",
+	"version": "4.0.0",
+	"author": "Gamemode One",
+	"publisher": "GamemodeOne",
+	"icon": "icon.png",
+	"repository": {
+		"url": "https://github.com/Gamemode-One/tl-json-compact-prettier"
+	},
+	"engines": {
+		"vscode": "^1.63.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:json",
+		"onLanguage:jsonc"
+	],
+	"main": "./out/Main.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "json-compact-prettier.prettify",
+				"title": "Compact Prettify JSON"
+			}
+		],
+		"configuration": {
+			"title": "JSON Compact Prettier",
+			"properties": {
+				"json-compact-prettier.maxLineLength": {
+					"title": "Max Line Length",
+					"description": "The maximum length of a line before it is wrapped.",
+					"type": "number",
+					"default": 120
+				},
+				"json-compact-prettier.indentLength": {
+					"title": "Indent Length",
+					"description": "The number of spaces to use for indentation.",
+					"type": "number",
+					"default": 4
+				},
+				"json-compact-prettier.bracketSpacing": {
+					"title": "Bracket Spacing",
+					"description": "Print spaces between brackets in objects.",
+					"type": "boolean",
+					"default": true
+				},
+				"json-compact-prettier.alwaysOpenKeys": {
+					"title": "Always Open Keys",
+					"description": "A list of keys which should not be collapsed.",
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"scripts": {
+		"lint": "eslint ./src/",
+		"pretest": "npm run lint",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"build": "npm run compile && npx vsce package --allow-missing-repository"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.18.0",
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.63.0",
+		"@vscode/test-electron": "^2.3.9",
+		"eslint": "^8.57.1",
+		"glob": "^7.2.0",
+		"globals": "^15.14.0",
+		"mocha": "^9.1.3",
+		"typescript": "^4.5.4"
+	},
+	"dependencies": {
+		"comment-json": "^4.2.5"
+	},
+	"__metadata": {
+		"installedTimestamp": 1752489074424,
+		"targetPlatform": "undefined",
+		"size": 440338
+	}
+}

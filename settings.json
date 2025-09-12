@@ -1,0 +1,53 @@
+{
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Aesthetic Iosevka Original",
+    "editor.fontSize": 16,
+    "files.autoSave": "afterDelay",
+    
+    "terminal.integrated.defaultProfile.linux": "fish",
+    
+    "workbench.colorTheme": "Kanagawa Dragon",
+    "workbench.iconTheme": "material-icon-theme",
+
+    "material-icon-theme.hidesExplorerArrows": true,
+    "workbench.tree.indent": 20,
+
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": true,
+
+    "workbench.sideBar.location": "left",
+    "workbench.statusBar.visible": false,
+
+    "editor.scrollbar.vertical": "visible",
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": "off",
+    "editor.overviewRulerBorder": false,
+
+    "breadcrumbs.enabled": false,
+
+    "excalidraw.workspaceLibraryPath": ".",
+    "excalidraw.theme": "dark",
+
+    "chat.commandCenter.enabled": false,
+    "workbench.layoutControl.enabled": false,
+
+    "window.customTitleBarVisibility": "never",
+    "window.titleBarStyle": "native",
+    "window.menuBarVisibility": "hidden",
+
+    "window.zoomLevel": 4,
+    "explorer.decorations.badges": false,
+
+    "editor.tabSize": 4,
+
+    "todohighlight.isEnable": true,
+
+    "workbench.startupEditor": "none",
+    "workbench.tips.enabled": false,
+
+    "files.insertFinalNewline": true,
+    "editor.renderWhitespace": "none",
+
+    "extensions.ignoreRecommendations": true,
+    "update.mode": "none"
+}

@@ -1,0 +1,171 @@
+{
+	"name": "gotestexplorer",
+	"displayName": "Go Test Explorer",
+	"description": "Go Test Explorer",
+	"version": "0.1.13",
+	"publisher": "premparihar",
+	"engines": {
+		"vscode": "^1.26.0"
+	},
+	"keywords": [
+		"go",
+		"test",
+		"gotest",
+		"unit test"
+	],
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onView:goTestExplorer"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "testExplorer",
+					"title": "go Test Explorer",
+					"icon": "media/test.svg"
+				}
+			]
+		},
+		"views": {
+			"testExplorer": [
+				{
+					"id": "goTestExplorer",
+					"name": "Test"
+				}
+			]
+		},
+		"menus": {
+			"view/title": [
+				{
+					"command": "goTestExplorer.refreshTestExplorer",
+					"when": "view == goTestExplorer",
+					"group": "navigation@1"
+				},
+				{
+					"command": "goTestExplorer.runAllTest",
+					"when": "view == goTestExplorer",
+					"group": "navigation@0"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "goTestExplorer.runTest",
+					"when": "viewItem == test"
+				},
+				{
+					"command": "goTestExplorer.showTestoutput",
+					"when": "viewItem == test"
+				},
+				{
+					"command": "goTestExplorer.runTestSuite",
+					"when": "viewItem == testSuite"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "goTestExplorer.refreshTestExplorer",
+				"title": "Refresh",
+				"icon": {
+					"light": "resources/light/refresh.svg",
+					"dark": "resources/dark/refresh.svg"
+				}
+			},
+			{
+				"command": "goTestExplorer.runTestSuite",
+				"title": "Run",
+				"icon": {
+					"light": "resources/light/run.png",
+					"dark": "resources/dark/run.png"
+				}
+			},
+			{
+				"command": "goTestExplorer.runTest",
+				"title": "Run",
+				"icon": {
+					"light": "resources/light/run.png",
+					"dark": "resources/dark/run.png"
+				}
+			},
+			{
+				"command": "goTestExplorer.runAllTest",
+				"title": "Run All",
+				"icon": {
+					"light": "resources/light/run.png",
+					"dark": "resources/dark/run.png"
+				}
+			},
+			{
+				"command": "goTestExplorer.goToLocation",
+				"title": "Go here",
+				"icon": {
+					"light": "resources/light/run.png",
+					"dark": "resources/dark/run.png"
+				}
+			},
+			{
+				"command": "goTestExplorer.showTestoutput",
+				"title": "show output",
+				"icon": {
+					"light": "resources/light/run.png",
+					"dark": "resources/dark/run.png"
+				}
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile",
+		"test-backup": "npm run compile && node ./node_modules/vscode/bin/test",
+		"pkgvars": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"@types/mkdirp": "^0.5.2",
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^8.10.25",
+		"@types/rimraf": "^2.0.2",
+		"tslint": "^5.8.0",
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.21"
+	},
+	"dependencies": {
+		"mkdirp": "^0.5.1",
+		"rimraf": "^2.6.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ppparihar/gotestexplorer.git"
+	},
+	"bugs": {
+		"url": "https://github.com/ppparihar/gotestexplorer/issues"
+	},
+	"badges": [
+		{
+			"url": "https://travis-ci.org/ppparihar/GoTestExplorer.svg?branch=master",
+			"href": "https://travis-ci.org/ppparihar/GoTestExplorer",
+			"description": "Continuous integration (Travis)"
+		}
+	],
+	"icon": "media/icon.png",
+	"__metadata": {
+		"id": "35ab00b9-99c0-4bc3-8bf4-44632dbfdb2a",
+		"publisherId": "837b2939-3813-4e66-a4f8-9fffec5374fa",
+		"publisherDisplayName": "Prem Parihar",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1738684950527,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery",
+		"size": 1153879
+	}
+}

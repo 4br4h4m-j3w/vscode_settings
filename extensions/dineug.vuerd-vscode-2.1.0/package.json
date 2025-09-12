@@ -1,0 +1,228 @@
+{
+	"name": "vuerd-vscode",
+	"version": "2.1.0",
+	"private": true,
+	"description": "Entity-Relationship Diagram Editor VSCode Extension",
+	"icon": "./assets/erd-editor.png",
+	"displayName": "ERD Editor",
+	"publisher": "dineug",
+	"categories": [
+		"Other",
+		"Visualization"
+	],
+	"keywords": [
+		"vuerd",
+		"editor",
+		"erd",
+		"db",
+		"database",
+		"draw",
+		"diagram",
+		"entity",
+		"relationship",
+		"sql"
+	],
+	"homepage": "https://github.com/dineug/erd-editor#readme",
+	"bugs": {
+		"url": "https://github.com/dineug/erd-editor/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dineug/erd-editor.git"
+	},
+	"author": "dineug <dineug2@gmail.com>",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"main": "./dist/extension",
+	"scripts": {
+		"vscode:prepublish": "pnpm build",
+		"dev": "webpack --mode development",
+		"build": "webpack --mode production",
+		"build:vsce": "pnpm vsce package --no-dependencies",
+		"publish:vsce": "pnpm vsce publish --no-dependencies",
+		"nx:dev": "nx dev",
+		"nx:build": "nx build"
+	},
+	"devDependencies": {
+		"@dineug/erd-editor-vscode-bridge": "workspace:*",
+		"@dineug/erd-editor-vscode-webview": "workspace:*",
+		"@dineug/shared": "workspace:*",
+		"@types/node": "^20.16.10",
+		"@types/vscode": "^1.85.0",
+		"base64-arraybuffer": "^1.0.2",
+		"crypto-js": "^4.2.0",
+		"macaddress": "^0.5.3",
+		"node-fetch": "^3.3.2",
+		"ts-loader": "^9.5.1",
+		"tsconfig-paths-webpack-plugin": "^4.1.0",
+		"typescript": "5.4.5",
+		"webpack": "^5.91.0",
+		"webpack-cli": "^5.1.4"
+	},
+	"activationEvents": [
+		"workspaceContains:**/*.{erd,vuerd}"
+	],
+	"capabilities": {
+		"untrustedWorkspaces": {
+			"supported": true
+		}
+	},
+	"contributes": {
+		"commands": [
+			{
+				"command": "vuerd.showSource",
+				"category": "vuerd",
+				"title": "Open Source",
+				"icon": "$(go-to-file)"
+			},
+			{
+				"command": "vuerd.showEditor",
+				"category": "vuerd",
+				"title": "Open ERD Editor",
+				"icon": "$(file-text)"
+			},
+			{
+				"command": "vuerd.showSourceToSide",
+				"category": "vuerd",
+				"title": "Open Source to the Side",
+				"icon": "$(go-to-file)"
+			},
+			{
+				"command": "vuerd.showEditorToSide",
+				"category": "vuerd",
+				"title": "Open ERD Editor to the Side",
+				"icon": "$(file-text)"
+			}
+		],
+		"configurationDefaults": {
+			"files.associations": {
+				"*.erd": "json",
+				"*.vuerd": "json"
+			}
+		},
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "vuerd.showSource",
+					"when": "false"
+				},
+				{
+					"command": "vuerd.showEditor",
+					"when": "false"
+				},
+				{
+					"command": "vuerd.showSourceToSide",
+					"when": "false"
+				},
+				{
+					"command": "vuerd.showEditorToSide",
+					"when": "false"
+				}
+			],
+			"editor/title": [
+				{
+					"command": "vuerd.showEditor",
+					"alt": "vuerd.showEditorToSide",
+					"when": "activeCustomEditorId != 'editor.erd' && resourceFilename =~ /^.+\\.(erd|vuerd)(.json)?$/",
+					"group": "navigation"
+				},
+				{
+					"command": "vuerd.showSource",
+					"alt": "vuerd.showSourceToSide",
+					"group": "navigation",
+					"when": "activeCustomEditorId == 'editor.erd' && resourceFilename =~ /^.+\\.(erd|vuerd)(.json)?$/"
+				}
+			]
+		},
+		"customEditors": [
+			{
+				"viewType": "editor.erd",
+				"displayName": "erd-editor",
+				"priority": "default",
+				"selector": [
+					{
+						"filenamePattern": "*.erd"
+					},
+					{
+						"filenamePattern": "*.erd.json"
+					},
+					{
+						"filenamePattern": "*.vuerd"
+					},
+					{
+						"filenamePattern": "*.vuerd.json"
+					}
+				]
+			}
+		],
+		"configuration": [
+			{
+				"title": "ERD Editor",
+				"properties": {
+					"dineug.erd-editor.theme.appearance": {
+						"description": "Theme appearance",
+						"type": "string",
+						"default": "dark",
+						"enum": [
+							"auto",
+							"light",
+							"dark"
+						]
+					},
+					"dineug.erd-editor.theme.grayColor": {
+						"description": "Gray color",
+						"type": "string",
+						"default": "slate",
+						"enum": [
+							"gray",
+							"mauve",
+							"slate",
+							"sage",
+							"olive",
+							"sand"
+						]
+					},
+					"dineug.erd-editor.theme.accentColor": {
+						"description": "Accent color",
+						"type": "string",
+						"default": "indigo",
+						"enum": [
+							"gray",
+							"gold",
+							"bronze",
+							"brown",
+							"yellow",
+							"amber",
+							"orange",
+							"tomato",
+							"red",
+							"ruby",
+							"crimson",
+							"pink",
+							"plum",
+							"purple",
+							"violet",
+							"iris",
+							"indigo",
+							"blue",
+							"cyan",
+							"teal",
+							"jade",
+							"green",
+							"grass",
+							"lime",
+							"mint",
+							"sky"
+						]
+					}
+				}
+			}
+		]
+	},
+	"__metadata": {
+		"installedTimestamp": 1746615758950,
+		"size": 3242607
+	}
+}

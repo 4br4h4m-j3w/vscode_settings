@@ -1,0 +1,12 @@
+/*!
+ * @dineug/erd-editor-shiki-worker
+ * @version 0.1.2 | Wed May 07 2025
+ * @author SeungHwan-Lee <dineug2@gmail.com>
+ * @license MIT
+ */
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */

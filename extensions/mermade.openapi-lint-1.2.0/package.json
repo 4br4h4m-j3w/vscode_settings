@@ -1,0 +1,208 @@
+{
+	"name": "openapi-lint",
+	"displayName": "openapi-lint",
+	"description": "OpenAPI (Swagger) 2.0/3.0.x intellisense, validator, linter, converter, resolver",
+	"version": "1.2.0",
+	"publisher": "mermade",
+	"engines": {
+		"vscode": "^1.24.0"
+	},
+	"categories": [
+		"Linters",
+		"Snippets"
+	],
+	"activationEvents": [
+		"onCommand:extension.openapi-validate",
+		"onCommand:extension.openapi-lint",
+		"onCommand:extension.openapi-validate-resolved",
+		"onCommand:extension.openapi-lint-resolved",
+		"onCommand:extension.openapi-bundle",
+		"onCommand:extension.openapi-to-json",
+		"onCommand:extension.openapi-to-yaml",
+		"onCommand:extension.openapi-convert-yaml",
+		"onCommand:extension.openapi-convert-json",
+		"onCommand:extension.openapi-convert-yaml-resolved",
+		"onCommand:extension.openapi-convert-json-resolved",
+		"*"
+	],
+	"main": "./extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.openapi-validate",
+				"title": "OpenAPI Validate"
+			},
+			{
+				"command": "extension.openapi-validate-resolved",
+				"title": "OpenAPI Resolve and Validate"
+			},
+			{
+				"command": "extension.openapi-lint",
+				"title": "OpenAPI Lint"
+			},
+			{
+				"command": "extension.openapi-lint-resolved",
+				"title": "OpenAPI Resolve and Lint"
+			},
+			{
+				"command": "extension.openapi-bundle",
+				"title": "OpenAPI Resolve (bundle)"
+			},
+			{
+				"command": "extension.openapi-convert-json",
+				"title": "OpenAPI 2.0 to 3.0.0 (JSON)"
+			},
+			{
+				"command": "extension.openapi-convert-yaml",
+				"title": "OpenAPI 2.0 to 3.0.0 (YAML)"
+			},
+			{
+				"command": "extension.openapi-convert-json-resolved",
+				"title": "OpenAPI 2.0 to 3.0.0 (JSON/Resolved)"
+			},
+			{
+				"command": "extension.openapi-convert-yaml-resolved",
+				"title": "OpenAPI 2.0 to 3.0.0 (YAML/Resolved)"
+			},
+			{
+				"command": "extension.openapi-to-json",
+				"title": "OpenAPI to JSON"
+			},
+			{
+				"command": "extension.openapi-to-yaml",
+				"title": "OpenAPI to YAML"
+			}
+		],
+		"snippets": [
+			{
+				"language": "json",
+				"path": "./snippets/json.json"
+			},
+			{
+				"language": "yaml",
+				"path": "./snippets/yaml.json"
+			}
+		],
+		"yamlValidation": [
+			{
+				"fileMatch": "*asyncapi1.yaml",
+				"url": "./schemas/asyncapi-1.2.json"
+			},
+			{
+				"fileMatch": "*asyncapi1.yml",
+				"url": "./schemas/asyncapi-1.2.json"
+			},
+			{
+				"fileMatch": "*asyncapi.yaml",
+				"url": "./schemas/asyncapi-2.0.json"
+			},
+			{
+				"fileMatch": "*asyncapi.yml",
+				"url": "./schemas/asyncapi-2.0.json"
+			},
+			{
+				"fileMatch": "*openapi.yaml",
+				"url": "./schemas/openapi-3.0.json"
+			},
+			{
+				"fileMatch": "*openapi.yml",
+				"url": "./schemas/openapi-3.0.json"
+			},
+			{
+				"fileMatch": "*oas3.yaml",
+				"url": "./schemas/openapi-3.0.json"
+			},
+			{
+				"fileMatch": "*oas3.yml",
+				"url": "./schemas/openapi-3.0.json"
+			},
+			{
+				"fileMatch": "*swagger.yaml",
+				"url": "./schemas/openapi-2.0.json"
+			},
+			{
+				"fileMatch": "*swagger.yml",
+				"url": "./schemas/openapi-2.0.json"
+			},
+			{
+				"fileMatch": "*oas2.yaml",
+				"url": "./schemas/openapi-2.0.json"
+			},
+			{
+				"fileMatch": "*oas2.yml",
+				"url": "./schemas/openapi-2.0.json"
+			}
+		],
+		"jsonValidation": [
+			{
+				"fileMatch": "*asyncapi1.json",
+				"url": "./schemas/asyncapi-1.2.json"
+			},
+			{
+				"fileMatch": "*asyncapi.json",
+				"url": "./schemas/asyncapi-2.0.json"
+			},
+			{
+				"fileMatch": "*openapi.json",
+				"url": "./schemas/openapi-3.0.json"
+			},
+			{
+				"fileMatch": "*oas3.json",
+				"url": "./schemas/openapi-3.0.json"
+			},
+			{
+				"fileMatch": "*swagger.json",
+				"url": "./schemas/openapi-2.0.json"
+			},
+			{
+				"fileMatch": "*oas2.json",
+				"url": "./schemas/openapi-2.0.json"
+			}
+		]
+	},
+	"icon": "images/icon.png",
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.22",
+		"eslint": "^4.11.0",
+		"@types/node": "^7.0.43",
+		"@types/mocha": "^2.2.42"
+	},
+	"dependencies": {
+		"oas-resolver": "^2.2.7",
+		"oas-validator": "^3.3.3",
+		"swagger2openapi": "^5.3.3",
+		"yaml": "^1.7.2"
+	},
+	"directories": {
+		"test": "test"
+	},
+	"extensionDependencies": [
+		"redhat.vscode-yaml"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Mermade/openapi-lint-vscode.git"
+	},
+	"keywords": [
+		"openapi",
+		"asyncapi",
+		"swagger",
+		"lint"
+	],
+	"author": "Mike Ralphson",
+	"license": "BSD-3-Clause",
+	"bugs": {
+		"url": "https://github.com/Mermade/openapi-lint-vscode/issues"
+	},
+	"homepage": "https://github.com/Mermade/openapi-lint-vscode#readme",
+	"__metadata": {
+		"installedTimestamp": 1751227212271,
+		"targetPlatform": "undefined",
+		"size": 7385120
+	}
+}
