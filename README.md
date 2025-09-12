@@ -8,3 +8,7 @@ $ cp -r extensions/ $HOME/.vscode/
 $ cp -r fonts/* $HOME/.fonts/
 $ fc-cache -fv
 ```
+
+### Visualization
+![photo](assets/result_1.png)
+![photo](assets/result_2.png)
