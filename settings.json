@@ -13,10 +13,10 @@
     "workbench.tree.indent": 20,
 
     "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": true,
+    "explorer.confirmDelete": false,
 
     "workbench.sideBar.location": "left",
-    "workbench.statusBar.visible": false,
+    "workbench.statusBar.visible": true,
 
     "editor.scrollbar.vertical": "visible",
     "editor.minimap.enabled": false,
@@ -38,8 +38,6 @@
     "window.zoomLevel": 4,
     "explorer.decorations.badges": false,
 
-    "editor.tabSize": 4,
-
     "todohighlight.isEnable": true,
 
     "workbench.startupEditor": "none",
@@ -51,5 +49,25 @@
     "extensions.ignoreRecommendations": true,
     "update.mode": "none",
 
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "python.languageServer": "Pylance",
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[go]": {
+        "editor.insertSpaces": true,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "golang.go"
+    },
 }
