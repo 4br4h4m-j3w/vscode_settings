@@ -1,7 +1,7 @@
 {
     "editor.fontLigatures": true,
     "editor.fontFamily": "Iosevka Nerd Font",
-    "editor.fontSize": 16,
+    "editor.fontSize": 14,
     "files.autoSave": "afterDelay",
     
     "terminal.integrated.defaultProfile.linux": "fish",
@@ -13,10 +13,10 @@
     "workbench.tree.indent": 20,
 
     "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
+    "explorer.confirmDelete": true,
 
     "workbench.sideBar.location": "left",
-    "workbench.statusBar.visible": true,
+    "workbench.statusBar.visible": false,
 
     "editor.scrollbar.vertical": "visible",
     "editor.minimap.enabled": false,
@@ -35,10 +35,11 @@
     "window.titleBarStyle": "native",
     "window.menuBarVisibility": "hidden",
 
-    "window.zoomLevel": 4,
+    "window.zoomLevel": 2,
     "explorer.decorations.badges": false,
 
-    "todohighlight.isEnable": true,
+    "editor.tabSize": 4,
+
 
     "workbench.startupEditor": "none",
     "workbench.tips.enabled": false,
@@ -50,24 +51,32 @@
     "update.mode": "none",
 
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "redhat.telemetry.enabled": false,
+
     "python.languageServer": "Pylance",
     "[dockercompose]": {
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
         "editor.autoIndent": "advanced",
         "editor.quickSuggestions": {
-            "other": true,
-            "comments": false,
-            "strings": true
+            "other": "on",
+            "comments": "off",
+            "strings": "on"
         },
-        "editor.defaultFormatter": "redhat.vscode-yaml"
-    },
-    "[github-actions-workflow]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
     "[go]": {
         "editor.insertSpaces": true,
         "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
         "editor.defaultFormatter": "golang.go"
     },
+    "[sql]": {
+        "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode",
+        "editor.formatOnSave": true
+    },
+    "Prettier-SQL.SQLFlavourOverride": "postgresql",
+    "Prettier-SQL.keywordCase": "upper"
 }
